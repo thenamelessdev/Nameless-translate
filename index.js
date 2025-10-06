@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config;
 const app = express();
-app.use("view engine", "ejs");
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
     res.render("index");
