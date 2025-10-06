@@ -15,8 +15,23 @@
     <input type="text" placeholder="Text to translate" id="text">
     <br>
     <button id="submitBtn">Submit</button>
+    <br>
+    <P id="translated"></P>
     <script>
-        
+        document.getElementById("submitBtn").addEventListener("click", async () => {
+            const targetLang = document.getElementById("targetLang").value;
+            const text = document.getElementById("text").value;
+            if (targetLang && text) {
+                const response = await fetch("/api/translate/?targetLang=" + targetLang + "&text=" + text);
+                const responseJson = await response.json();
+                try {
+                    document.getElementById("translated").textContent = responseJson.translatedText;
+                }
+                catch {
+                    document.getElementById("translated").textContent = "There was a error while translating";
+                }
+            }
+        })
     </script>
 </body>
 </html>
