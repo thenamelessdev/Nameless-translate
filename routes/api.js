@@ -32,4 +32,8 @@ router.get("/translate", async (req, res) => {
     }
 })
 
+router.get("/meow", (req, res) => {
+    res.json({ "meow": ["meow", "meow"] });
+})
+
 module.exports = router;
