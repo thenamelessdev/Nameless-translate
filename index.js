@@ -10,4 +10,8 @@ app.get("/", (req, res) => {
 const apiRouter = require("./routes/api");
 app.use("/api", apiRouter);
 
+app.get((req, res) => {
+    res.render("404");
+})
+
 app.listen(80);
