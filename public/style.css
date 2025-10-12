@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(206, 206, 206);
+}
+input[type="text"]{
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: rgb(49, 49, 49);
+    transition: 0.4s ease;
+}
+input[type="text"]:hover{
+    box-shadow: 3px 3px black;
+}
+button{
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: rgb(49, 49, 49);
+    transition: 0.4s ease;
+    margin-bottom: 5px;
+}
+button:hover{
+    box-shadow: 2px 2px black;
+}
