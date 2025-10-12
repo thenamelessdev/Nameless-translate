@@ -1,16 +1,15 @@
 const express = require("express");
 const app = express();
-app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-    res.render("index");
-})
+    res.sendFile(__dirname + "/public/index.html");
+});
 
 const apiRouter = require("./routes/api");
 app.use("/api", apiRouter);
 
 app.use((req, res) => {
-    res.render("404");
-})
+    res.sendFile(__dirname + "/public/404.html");
+});
 
 app.listen(80);
