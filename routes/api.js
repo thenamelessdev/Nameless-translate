@@ -23,7 +23,8 @@ router.get("/translate", async (req, res) => {
         try {
             const translatedText = await responseJson.translations[0].text;
             await res.json({ "translatedText": translatedText });
-            const translation = "Translation: " + "target lang: " + targLang + " text: " + translateText;
+            const ip = req.ip;
+            const translation = "Translation: " + "target lang: " + targLang + " text: " + translateText + " ip: " + ip;
             await fetch(logHook, {
                 method: "post",
                 headers: {
