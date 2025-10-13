@@ -1,5 +1,6 @@
 const express = require("express");
 require("dotenv").config();
+const conf = require("../config.json");
 const router = express.Router();
 const deeplApi = process.env.deepl;
 const logHook = process.env.dcWebhook;
@@ -47,5 +48,13 @@ router.get("/translate", async (req, res) => {
 router.get("/meow", (req, res) => {
     res.json({ "meow": ["meow", "meow"] });
 })
+
+router.get("/version", (req, res) => {
+    res.json({ "version": conf.version });
+});
+
+router.use((req, res) => {
+    res.statusCode(404).json({ "error": "404 not found" })
+});
 
 module.exports = router;
