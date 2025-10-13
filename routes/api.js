@@ -54,7 +54,7 @@ router.get("/version", (req, res) => {
 });
 
 router.use((req, res) => {
-    res.statusCode(404).json({ "error": "404 not found" })
+    res.status(404).json({ "error": "404 not found" })
 });
 
 module.exports = router;

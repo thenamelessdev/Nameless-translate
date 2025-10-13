@@ -19,7 +19,7 @@ app.get("/tos", (req, res) => {
 });
 
 app.use((req, res) => {
-    res.statusCode(404).sendFile(__dirname + "/public/404.html");
+    res.status(404).sendFile(__dirname + "/public/404.html");
 });
 
 app.listen(80);
