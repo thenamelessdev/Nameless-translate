@@ -11,11 +11,11 @@ const apiRouter = require("./routes/api");
 app.use("/api", apiRouter);
 
 app.get("/pp", (req, res) => {
-    res.sendFile(__dirname + "/public/privacy policy.html");
+    res.sendFile(__dirname + "/public/legal/privacy policy.html");
 });
 
 app.get("/tos", (req, res) => {
-    res.sendFile(__dirname + "/public/tos.html");
+    res.sendFile(__dirname + "/public/legal/tos.html");
 });
 
 app.get("/changelog", (req, res) => {
@@ -23,7 +23,7 @@ app.get("/changelog", (req, res) => {
 });
 
 app.use((req, res) => {
-    res.status(404).sendFile(__dirname + "/public/404.html");
+    res.status(404).sendFile(__dirname + "/public/errors/404.html");
 });
 
 app.listen(80);
