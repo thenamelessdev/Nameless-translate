@@ -18,6 +18,10 @@ app.get("/tos", (req, res) => {
     res.sendFile(__dirname + "/public/tos.html");
 });
 
+app.get("/changelog", (req, res) => {
+    res.sendFile(__dirname + "/public/changelog.html");
+});
+
 app.use((req, res) => {
     res.status(404).sendFile(__dirname + "/public/404.html");
 });

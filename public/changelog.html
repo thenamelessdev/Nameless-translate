@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Nameless translate changelog</h1>
+    <br>
+    <p id="log">loading...</p>
+    <script>
+        async function updateLog() {
+            const getLog = await fetch("/api/changelog");
+            const getLogJson = await getLog.json();
+            const changelog = await getLogJson.changelog;
+            if (changelog) {
+                document.getElementById("log").textContent = changelog;
+            }
+            else{
+                document.getElementById("log").textContent = "there was a error while fetching changelog";
+            }
+        };
+        updateLog();
+    </script>
+</body>
+</html>

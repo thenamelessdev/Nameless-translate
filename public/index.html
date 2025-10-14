@@ -20,7 +20,7 @@
     <p>Result: </p>
     <P id="translated">Translate something</P>
     <br>
-    <p id="ver">Version: loading...</p>
+    <p>Version: <a href="/changelog" id="ver">Loging...</a></p>
     <br>
     <p>Using Nameless translate you agree our <a href="/pp">Privacy Policy</a> & <a href="/tos">Term of service</a>.</p>
     <p>&copy; 2025 thenamelessdev. Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.</p>
@@ -44,7 +44,7 @@
             const getVer = await fetch("/api/version");
             const getVerJson = await getVer.json();
             const version = await getVerJson.version;
-            document.getElementById("ver").textContent = `Version: ${version}`;
+            document.getElementById("ver").textContent = version;
         }
         updateVer()
     </script>

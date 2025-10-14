@@ -53,6 +53,10 @@ router.get("/version", (req, res) => {
     res.json({ "version": conf.version });
 });
 
+router.get("/changelog", (req, res) => {
+    res.json({ "changelog": conf.changelog });
+});
+
 router.use((req, res) => {
     res.status(404).json({ "error": "404 not found" })
 });
