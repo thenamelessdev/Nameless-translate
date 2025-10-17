@@ -6,9 +6,8 @@ const router = express.Router();
 const deeplApi = process.env.deepl;
 const logHook = process.env.dcWebhook;
 
-router.get("/translate", async (req, res) => {
-    const targLang = req.query.targetLang;
-    const translateText = req.query.text;
+router.post("/translate", async (req, res) => {
+    const { targLang, translateText } = req.body;
     if (targLang && translateText) {
         const response = await fetch("https://api-free.deepl.com/v2/translate", {
         method: "POST",

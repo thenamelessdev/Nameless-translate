@@ -29,7 +29,13 @@
             const targetLang = document.getElementById("targetLang").value;
             const text = document.getElementById("text").value;
             if (targetLang && text) {
-                const response = await fetch("/api/translate/?targetLang=" + targetLang + "&text=" + text);
+                const response = await fetch("/api/translate/", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        targLang: targetLang,
+                        translateText: text
+                    })
+                });
                 const responseJson = await response.json();
                 if (responseJson.translatedText) {
                     document.getElementById("translated").textContent = responseJson.translatedText;
