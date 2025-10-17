@@ -1,5 +1,6 @@
 const express = require("express");
 require("dotenv").config();
+const logTranslate = require("../log");
 const conf = require("../config.json");
 const router = express.Router();
 const deeplApi = process.env.deepl;
@@ -25,16 +26,7 @@ router.get("/translate", async (req, res) => {
             const translatedText = await responseJson.translations[0].text;
             await res.json({ "translatedText": translatedText });
             const ip = req.ip;
-            const translation = "Translation: " + "target lang: " + targLang + " text: " + translateText + " ip: " + ip;
-            await fetch(logHook, {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    content: translation
-                })
-            });
+            await logTranslate(targLang, translateText, ip);
         }
         catch {
             await res.json({ "error": "There was a error while translating" });
