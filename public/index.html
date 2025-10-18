@@ -34,7 +34,10 @@
                     body: JSON.stringify({
                         targLang: targetLang,
                         translateText: text
-                    })
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
                 });
                 const responseJson = await response.json();
                 if (responseJson.translatedText) {

@@ -27,4 +27,4 @@ app.use((req, res) => {
     res.status(404).sendFile(__dirname + "/public/errors/404.html");
 });
 
-app.listen(80);
+app.listen(1234);
