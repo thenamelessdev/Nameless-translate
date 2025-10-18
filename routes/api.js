@@ -49,7 +49,7 @@ router.post("/support", async (req, res) => {
     if (email, message) {
         await sendEmail("aron@thenamelessdev.com", message + " " + email);
         await sendEmail(email, "Your request has been sent.");
-        res.statusCode(204);
+        res.status(204);
     }
     else{
         res.json({ "error": "missing email and/or message" });
