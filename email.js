@@ -1,10 +1,10 @@
-const Resend = require("resend");
-const resendKey = process.env.resend;
+const { Resend } = require("resend");
+const resendKey = process.env.resendKey;
 const resend = new Resend(resendKey);
 
 async function sendEmail(to, message) {
     try{
-        await resend.emails.send({
+        const email = await resend.emails.send({
             from: "nameless-translate@support.thenamelessdev.com",
             to: to,
             subject: "Nameless translate | support",
