@@ -4,7 +4,6 @@ const logTranslate = require("../log");
 const conf = require("../config.json");
 const router = express.Router();
 const deeplApi = process.env.deepl;
-const logHook = process.env.dcWebhook;
 
 router.post("/translate", async (req, res) => {
     const { targLang, translateText } = req.body;
