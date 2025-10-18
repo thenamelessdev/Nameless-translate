@@ -9,6 +9,41 @@
 <body>
     <h2>Contact us</h2>
     <br>
-    <p>The online system is coming. Untill that you can email us: <a href="mailto:aron@thenamelessdev.com">aron@thenamelessdev.com</a></p>
+    <label for="email">Email address:</label>
+    <input type="email" id="email">
+    <br>
+    <label for="message">Message:</label>
+    <input type="text" id="message">
+    <br>
+    <button id="submit">Submit</button>
+    <br>
+    <p id="result"></p>
+    <script>
+        document.getElementById("submit").addEventListener("click", async () => {
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            if (email && message) {
+                const sendSupport = await fetch("/api/support", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "email": email,
+                        "message": message
+                    })
+                });
+                if (sendSupport.status = 204) {
+                    document.getElementById("result").textContent = "Sent!"
+                }
+                else{
+                    document.getElementById("result").textContent = "There was a error. Please try again later.";
+                }
+            }
+            else{
+                document.getElementById("result").textContent = "Please fill both fields";
+            }
+        });
+    </script>
 </body>
 </html>
