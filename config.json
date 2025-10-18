@@ -1,4 +1,4 @@
 {
     "version": "1.23 beta",
-    "changelog": "added changelog, it says it when you don't enter something, typo fix"
+    "changelog": "backend updates, using a post request at translate api, bug fixes"
 }
