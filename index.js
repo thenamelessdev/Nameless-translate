@@ -23,6 +23,10 @@ app.get("/changelog", (req, res) => {
     res.sendFile(__dirname + "/public/changelog.html");
 });
 
+app.get("/contact", (req, res) => {
+    res.sendFile(__dirname + "/public/contact.html");
+});
+
 app.use((req, res) => {
     res.status(404).sendFile(__dirname + "/public/errors/404.html");
 });
