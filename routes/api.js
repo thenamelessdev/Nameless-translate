@@ -40,11 +40,7 @@ router.get("/meow", (req, res) => {
 })
 
 router.get("/version", (req, res) => {
-    res.json({ "version": conf.version });
-});
-
-router.get("/changelog", (req, res) => {
-    res.json({ "changelog": conf.changelog });
+    res.json({ "version": conf.version, "changelog": conf.changelog });
 });
 
 router.use((req, res) => {

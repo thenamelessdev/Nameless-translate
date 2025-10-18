@@ -12,7 +12,7 @@
     <p id="log">loading...</p>
     <script>
         async function updateLog() {
-            const getLog = await fetch("/api/changelog");
+            const getLog = await fetch("/api/version");
             const getLogJson = await getLog.json();
             const changelog = await getLogJson.changelog;
             if (changelog) {
