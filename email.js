@@ -1,4 +1,5 @@
 const { Resend } = require("resend");
+require("dotenv").config();
 const resendKey = process.env.resendKey;
 const resend = new Resend(resendKey);
 

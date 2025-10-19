@@ -1,6 +1,8 @@
 const express = require("express");
+const sendEmail = require("./email");
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("trust proxy", true);
 
@@ -25,6 +27,15 @@ app.get("/changelog", (req, res) => {
 
 app.get("/contact", (req, res) => {
     res.sendFile(__dirname + "/public/contact.html");
+});
+
+app.post("/contact", async (req, res) => {
+    const { email, message } = req.body;
+    if (email && message) {
+        await sendEmail("aron@thenamelessdev.com", message + " " + email, "New request");
+        await sendEmail(email, "Your request has beed sent!", "Nameless translate support");
+        res.status(200).redirect("/");
+    }
 });
 
 app.use((req, res) => {
