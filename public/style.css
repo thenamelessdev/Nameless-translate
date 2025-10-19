@@ -10,6 +10,15 @@ input[type="text"]{
 input[type="text"]:hover{
     box-shadow: 3px 3px black;
 }
+input[type="email"]{
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: rgb(49, 49, 49);
+    transition: 0.4s ease;
+}
+input[type="email"]:hover{
+    box-shadow: 3px 3px black;
+}
 button{
     border-width: 2px;
     border-radius: 5px;
