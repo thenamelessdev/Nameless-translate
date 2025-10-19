@@ -47,8 +47,8 @@ router.get("/version", (req, res) => {
 router.post("/support", async (req, res) => {
     const { email, message } = req.body;
     if (email, message) {
-        await sendEmail("aron@thenamelessdev.com", message + " " + email);
-        await sendEmail(email, "Your request has been sent.");
+        await sendEmail("aron@thenamelessdev.com", message + " " + email, "New request");
+        await sendEmail(email, "Your request has been sent.", "Nameless translate support");
         res.statusCode(204);
     }
     else{
