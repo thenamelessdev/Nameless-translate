@@ -1,5 +1,7 @@
 body{
     background-color: rgb(206, 206, 206);
+    text-align: center;
+    align-items: center;
 }
 input[type="text"]{
     border-width: 2px;
