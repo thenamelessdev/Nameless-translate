@@ -2,7 +2,6 @@ const express = require("express");
 require("dotenv").config();
 const logTranslate = require("../log");
 const conf = require("../config.json");
-const sendEmail = require("../email");
 const router = express.Router();
 const deeplApi = process.env.deepl;
 
@@ -44,17 +43,6 @@ router.get("/version", (req, res) => {
     res.json({ "version": conf.version, "changelog": conf.changelog });
 });
 
-router.post("/support", async (req, res) => {
-    const { email, message } = req.body;
-    if (email, message) {
-        await sendEmail("aron@thenamelessdev.com", message + " " + email, "New request");
-        await sendEmail(email, "Your request has been sent.", "Nameless translate support");
-        res.statusCode(204);
-    }
-    else{
-        res.json({ "error": "missing email and/or message" });
-    }
-})
 
 router.use((req, res) => {
     res.status(404).json({ "error": "404 not found" });
