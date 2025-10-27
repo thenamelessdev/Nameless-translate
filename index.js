@@ -1,5 +1,4 @@
 const express = require("express");
-const sendEmail = require("./email");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
