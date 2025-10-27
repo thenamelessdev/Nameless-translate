@@ -29,15 +29,6 @@ app.get("/contact", (req, res) => {
     res.sendFile(__dirname + "/public/contact.html");
 });
 
-app.post("/contact", async (req, res) => {
-    const { email, message } = req.body;
-    if (email && message) {
-        await sendEmail("aron@thenamelessdev.com", message + " " + email, "New request");
-        await sendEmail(email, "Your request has beed sent!", "Nameless translate support");
-        res.status(200).redirect("/");
-    }
-});
-
 app.use((req, res) => {
     res.status(404).sendFile(__dirname + "/public/errors/404.html");
 });
